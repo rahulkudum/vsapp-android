@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Vaisnava Songs</string>
+    <string name="title_activity_main">Vaisnava Songs</string>
+    <string name="package_name">com.rahulkudum.vaisnava_songs</string>
+    <string name="custom_url_scheme">com.rahulkudum.vaisnava_songs</string>
+</resources>

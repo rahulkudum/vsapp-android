@@ -1,0 +1,19 @@
+
+@font-face{
+   font-family: hindi;
+   src: url(./SHREE-DEV7-0710_Regular.ttf);
+}
+
+
+
+body{
+
+   margin: 0;
+   font-family:hindi, Arial, Helvetica, sans-serif;
+   
+   
+}
+
+.hin{
+   font-family: hindi;
+}

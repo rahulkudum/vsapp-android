@@ -1,0 +1,60 @@
+
+
+
+
+.ionhead{
+ position: fixed;
+ top:0;
+ left:0;
+ z-index: 100;
+ 
+}
+
+.tab{
+  position: fixed;
+  left:0;
+  bottom: 0;
+}
+
+.foot{
+  position: fixed;
+  left:0;
+  bottom: 0;
+  right:0;
+  padding: 5px 5px 5px 5px ;
+  border-bottom: 50px;
+  z-index: 100;
+  text-align: center;
+  display: flex;
+}
+.foot2{
+  position: fixed;
+  left:0;
+  bottom: 56px;
+  right:0;
+  padding: 5px 5px 5px 5px ;
+  border-bottom: 50px;
+  z-index: 100;
+  text-align: center;
+ 
+
+}
+.foot{
+ 
+  padding: 10px 5px 5px 5px ;
+  border-bottom: 50px;
+  
+  text-align: center;
+  display: flex;
+}
+
+
+.label{
+
+text-align: center;
+margin-top: 10px;
+
+
+}
+
+
