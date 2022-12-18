@@ -94,7 +94,7 @@ function SB() {
                }}
                ref={cont}
               >
-               <IonLabel style={{ fontFamily: `${fon}` }} style={{ fontSize: "14px" }}>
+               <IonLabel style={{ fontSize: "14px", fontFamily: `${fon}` }}>
                 {td.name.slice(0, td.name.indexOf("(SB")).slice(0, td.name.slice(0, td.name.indexOf("(SB")).indexOf("(SB"))}
                </IonLabel>
                <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
@@ -112,9 +112,7 @@ function SB() {
                history.push(`${url}/${i1}_${i2}`);
               }}
              >
-              <IonLabel style={{ fontFamily: `${fon}` }} style={{ fontSize: "14px" }}>
-               {td.name.slice(0, td.name.indexOf("(SB"))}
-              </IonLabel>
+              <IonLabel style={{ fontSize: "14px", fontFamily: `${fon}` }}>{td.name.slice(0, td.name.indexOf("(SB"))}</IonLabel>
               <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
                {td.name.slice(td.name.indexOf("(SB"))}
               </IonNote>
@@ -142,9 +140,7 @@ function SB() {
               setAnchor2(i2);
              }}
             >
-             <IonLabel style={{ fontFamily: `${fon}` }} style={{ fontSize: "14px" }}>
-              {td.name.slice(0, td.name.indexOf("(SB"))}
-             </IonLabel>
+             <IonLabel style={{ fontSize: "14px", fontFamily: `${fon}` }}>{td.name.slice(0, td.name.indexOf("(SB"))}</IonLabel>
              <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
               {td.name.slice(td.name.indexOf("(SB"))}
              </IonNote>

@@ -153,7 +153,7 @@ function Song(props) {
       <IonCard color={clr} style={{ color: `${color2}`, fontFamily: `${fon}` }}>
        <IonCardContent>
         <p style={{ textAlign: "center", fontSize: `${tsize}px` }}>
-         Sorry Prabhuji/Mataji, we are currently not having the word to word meanings for this Song Book
+         Sorry Prabhuji/Mataji, we are currently not having the word to word meanings for this Song/Song Book
         </p>
        </IonCardContent>
       </IonCard>

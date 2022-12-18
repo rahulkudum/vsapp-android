@@ -7,7 +7,7 @@ import Readme from "../menu/readme";
 import { Switch, Route, useLocation, useRouteMatch, useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { IonItem, IonToolbar, IonItemDivider, IonLabel, IonButtons, IonSearchbar, IonNote, IonSegmentButton, IonSegment, IonButton } from "@ionic/react";
-import { Drawer, Menu } from "@material-ui/core";
+import { SwipeableDrawer, Menu } from "@material-ui/core";
 import { ChromeReaderMode, Feedback, FilterList, InfoSharp, MenuSharp, Receipt, SettingsSharp, ShareSharp, Search } from "@material-ui/icons";
 import { LibraryMusicSharp, CollectionsBookmarkSharp, QueueMusicSharp, MenuBookSharp } from "@material-ui/icons";
 import { AnimatePresence, motion } from "framer-motion";
@@ -169,7 +169,7 @@ function Csub() {
 
        <div style={{ height: "58px" }}></div>
 
-       <Drawer classes={{ paper: classes.paper }} anchor="left" open={drawerstate} onClose={() => setDrawer(false)}>
+       <SwipeableDrawer classes={{ paper: classes.paper }} anchor="left" open={drawerstate} onOpen={() => setDrawer(true)} onClose={() => setDrawer(false)}>
         <img src={logo} style={{ width: "275px" }} alt="Gauranga is Radha & Krishna combined"></img>
 
         <IonItem
@@ -253,7 +253,7 @@ function Csub() {
          <Feedback style={{ paddingRight: "10px" }} />
          <IonLabel style={{ fontFamily: `${fon}` }}>Give us Feedback</IonLabel>
         </IonItem>
-       </Drawer>
+       </SwipeableDrawer>
 
        {searchState ? (
         <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}`, fontSize: "16px" }}>
@@ -350,110 +350,110 @@ function Csub() {
        })}
 
        {searchState ? (
-        <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}`, fontSize: "16px" }}>
-         <IonLabel style={{ fontFamily: `${fon}` }}>Verses</IonLabel>
-        </IonItemDivider>
+        <div>
+         <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}`, fontSize: "16px" }}>
+          <IonLabel style={{ fontFamily: `${fon}` }}>Verses</IonLabel>
+         </IonItemDivider>
+
+         {searchList.map((val, i) => {
+          if (val.line.indexOf(")") === -1) {
+           if (anchor3 === val.line) {
+            return (
+             <IonItem
+              color={clr}
+              ref={cont3}
+              button
+              onClick={() => {
+               for (let j in iskcon.songs) {
+                if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
+                 history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
+                 setAnchor3(val.line);
+                }
+               }
+              }}
+             >
+              <IonLabel style={{ fontFamily: `${fon}` }}>{val.line}</IonLabel>
+              <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
+               {val.title}
+              </IonNote>
+             </IonItem>
+            );
+           } else {
+            return (
+             <IonItem
+              color={clr}
+              button
+              onClick={() => {
+               for (let j in iskcon.songs) {
+                if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
+                 history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
+                 setAnchor3(val.line);
+                }
+               }
+              }}
+             >
+              <IonLabel style={{ fontFamily: `${fon}` }}>{val.line}</IonLabel>
+              <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
+               {val.title}
+              </IonNote>
+             </IonItem>
+            );
+           }
+          }
+         })}
+
+         <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}`, fontSize: "16px" }}>
+          <IonLabel style={{ fontFamily: `${fon}` }}>Translations</IonLabel>
+         </IonItemDivider>
+
+         {searchList.map((val, i) => {
+          if (val.line.indexOf(")") !== -1) {
+           if (anchor3 === val.line) {
+            return (
+             <IonItem
+              color={clr}
+              ref={cont3}
+              button
+              onClick={() => {
+               for (let j in iskcon.songs) {
+                if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
+                 history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
+                 setAnchor3(val.line);
+                }
+               }
+              }}
+             >
+              <IonLabel style={{ fontFamily: `${fon}` }}>{val.line.slice(val.line.indexOf(")") + 1, -1)}</IonLabel>
+              <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
+               {val.title}
+              </IonNote>
+             </IonItem>
+            );
+           } else {
+            return (
+             <IonItem
+              color={clr}
+              button
+              onClick={() => {
+               for (let j in iskcon.songs) {
+                if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
+                 history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
+                 setAnchor3(val.line);
+                }
+               }
+              }}
+             >
+              <IonLabel style={{ fontFamily: `${fon}` }}>{val.line.slice(val.line.indexOf(")") + 1, -1)}</IonLabel>
+              <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
+               {val.title}
+              </IonNote>
+             </IonItem>
+            );
+           }
+          }
+         })}
+        </div>
        ) : null}
-
-       {searchList.map((val, i) => {
-        if (val.line.indexOf(")") === -1) {
-         if (anchor3 === val.line) {
-          return (
-           <IonItem
-            color={clr}
-            ref={cont3}
-            button
-            onClick={() => {
-             for (let j in iskcon.songs) {
-              if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
-               history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
-               setAnchor3(val.line);
-              }
-             }
-            }}
-           >
-            <IonLabel style={{ fontFamily: `${fon}` }}>{val.line}</IonLabel>
-            <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
-             {val.title}
-            </IonNote>
-           </IonItem>
-          );
-         } else {
-          return (
-           <IonItem
-            color={clr}
-            button
-            onClick={() => {
-             for (let j in iskcon.songs) {
-              if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
-               history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
-               setAnchor3(val.line);
-              }
-             }
-            }}
-           >
-            <IonLabel style={{ fontFamily: `${fon}` }}>{val.line}</IonLabel>
-            <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
-             {val.title}
-            </IonNote>
-           </IonItem>
-          );
-         }
-        }
-       })}
-
-       {searchState ? (
-        <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}`, fontSize: "16px" }}>
-         <IonLabel style={{ fontFamily: `${fon}` }}>Translations</IonLabel>
-        </IonItemDivider>
-       ) : null}
-
-       {searchList.map((val, i) => {
-        if (val.line.indexOf(")") !== -1) {
-         if (anchor3 === val.line) {
-          return (
-           <IonItem
-            color={clr}
-            ref={cont3}
-            button
-            onClick={() => {
-             for (let j in iskcon.songs) {
-              if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
-               history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
-               setAnchor3(val.line);
-              }
-             }
-            }}
-           >
-            <IonLabel style={{ fontFamily: `${fon}` }}>{val.line.slice(val.line.indexOf(")") + 1, -1)}</IonLabel>
-            <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
-             {val.title}
-            </IonNote>
-           </IonItem>
-          );
-         } else {
-          return (
-           <IonItem
-            color={clr}
-            button
-            onClick={() => {
-             for (let j in iskcon.songs) {
-              if (val.title.indexOf(iskcon.songs[j].name.toLowerCase()) !== -1) {
-               history.push(`${url}/songs/${iskcon.songs[j].name}_${iskcon.songs[j].book}`);
-               setAnchor3(val.line);
-              }
-             }
-            }}
-           >
-            <IonLabel style={{ fontFamily: `${fon}` }}>{val.line.slice(val.line.indexOf(")") + 1, -1)}</IonLabel>
-            <IonNote style={{ fontFamily: `${fon}` }} color={!clr ? "dark" : "light"} mode="ios" slot="end">
-             {val.title}
-            </IonNote>
-           </IonItem>
-          );
-         }
-        }
-       })}
 
        <div>
         {!searchState && filter === "authors" ? (

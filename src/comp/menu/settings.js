@@ -91,7 +91,7 @@ function Settings() {
    </IonRadioGroup>
 
    <IonItemDivider style={{ backgroundColor: `${color2}`, color: `${color3}` }}>
-    <IonLabel style={{ fontFamily: `${fon}` }}>Default Theme of the App </IonLabel>
+    <IonLabel style={{ fontFamily: `${fon}` }}>Theme of the App </IonLabel>
    </IonItemDivider>
    <IonRadioGroup value={clr} onIonChange={(e) => setClr(e.detail.value)}>
     <IonItem color={clr}>

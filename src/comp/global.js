@@ -335,7 +335,7 @@ export function GlobalProvider({ children }) {
 
  useEffect(() => {
   if (!prog.includes("piskcon")) {
-   fetch("https://quiet-peak-15233.herokuapp.com/files/" + "SPMP")
+   fetch("https://quiet-peak-15233.herokuapp.com/files/" + "SPM")
     .then((res) => {
      return res.text();
     })
